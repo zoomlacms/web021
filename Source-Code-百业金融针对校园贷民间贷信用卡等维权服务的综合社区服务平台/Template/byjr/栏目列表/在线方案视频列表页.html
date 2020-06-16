@@ -1,0 +1,145 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+{ZL:GetCSS(2,0)/}
+<script src="/js/scrolltopcontrol.js"></script>
+<script src="/JS/Controls/B_User.js"></script>
+</head> 
+<body>
+{ZL.Label id="全站头部"/}
+
+<div class="container iclass">
+<div class="row">
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+<div class="mySites" style="margin-top:0;">
+<ul class="breadcrumb">
+<li><a href="/">首页</a></li>
+{ZL.Label id="输出多级节点导航_V4" NodeID="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" ShowNum="30" /}
+<li class="active">栏目列表</li>
+</ul>
+</div>
+<div class="list-group margin_top20">
+<div class="n_lis">
+<div class="panel  panel-primary">
+<div class="panel-heading">
+<h3 class="panel-title">
+{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}
+</h3>
+</div>
+<div class="panel-body video_img">
+{ZL.Label id="输出视频列表_分页" NodeID="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" TitieNum="30" ShowNum="20" /}</div>
+</div></div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="home_info_t">论坛导航</div>
+<ul class="home_info_u">
+{ZL.Label id="节点列表" ParentID="{SField sid="节点栏目信息数据源" FD="ParentID" page="0"/}" ShowNum="10"/}
+<div class="clearfix"></div>
+</ul>
+<div class="home_info_t margin_top20">热门标签</div>
+<div class="label_list">
+<a href="#">异地申请信用卡</a>
+<a href="#">异地申请信用卡技巧</a>
+<a href="#">异地网申请信用卡</a>
+<a href="#">中信信用卡异地申</a>
+<a href="#">工行异地申请信用卡</a>
+</div>
+</div>
+</div>
+</div>
+
+
+
+{ZL.Label id="全站底部"/}
+</body>
+</html>
+<script>
+//检测固顶事件
+var IO=document.getElementById('home_nav'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+    IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+        ".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+    var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+     if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+    if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+    IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+
+//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+var buser = new B_User();
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data)
+		$(".user_login").hide();
+		$(".user_reg").hide();
+		$(".user_cen").html("欢迎您,"+data.UserName+"!");
+		$(".user_cen").show();
+		$(".user_logout").show();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+};
+
+/*显示搜索框*/
+function isSearch(){
+    $(".home_search").show();
+    $(".home_navbar").hide();
+    $(".home_search .form-control").focus();
+}
+/*关闭搜索框*/
+function isClose(){
+    $(".home_search").hide();
+    $(".home_navbar").show();
+}
+
+ $(".kefu_qrcode img").attr("src","/Common/common.ashx?url="+encodeURI(window.location.href));
+ 
+//手机下右侧导航菜单效果
+$(function () {
+    $('button.navbar-toggle').click(function () {
+        $('body').toggleClass('out');
+        $('nav.navbar-fixed-top').toggleClass('out');
+        if ($('body').hasClass('out')) {
+            $(this).focus();
+        }
+        else {
+            $(this).blur();
+        }
+    });
+});
+$(document).click(function (e) {
+    if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+        e.preventDefault();
+        $('button.navbar-toggle').trigger('click');
+    }
+}).keyup(function (e) {
+    if (e.keyCode == 27 && $('body').hasClass('out')) {
+        $('button.navbar-toggle').trigger('click');
+    }
+});
+
+
+//微信二维码
+$(".home_weixin img").hide();
+$(".home_weixin a").mouseover(function(){
+    $(".home_weixin img").show();
+}).mouseout(function(){
+    $(".home_weixin img").hide();
+});
+
+</script>

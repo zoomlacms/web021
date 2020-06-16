@@ -1,0 +1,26 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.cols = 4;
+    Model.url = "/Guest/Cate_Data?cateid=" + Request["cateid"];
+}
+@functions{
+    public string GetTitle(object status, object title)
+    {
+        if (status.ToString().Equals("0"))
+        {
+            return "<span style='color:gray;'>" + title + "[未审核]</span>";
+        }
+        else
+        {
+            return title.ToString();
+        }
+    }
+    public string GetUName(object honeyname, object username)
+    {
+        string name = B_User.GetUserName(honeyname.ToString(), username.ToString());
+        return string.IsNullOrEmpty(name) ? "游客" : name;
+    }
+}

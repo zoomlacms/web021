@@ -1,0 +1,204 @@
+{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>法律维权提交_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<link href="/dist/css/weui.min.css" rel="stylesheet" />
+<script src="/JS/Controls/B_User.js"></script>
+<link href="/Plugins/Third/alert/sweetalert.css" rel="stylesheet" />
+<script src="/Plugins/Third/alert/sweetalert.min.js?v=1"></script>
+<style>
+label { margin-bottom:0; font-weight:500;}
+</style>
+</head>
+<body>
+{ZL.Label id="全站头部"/}
+<div class="container">
+<div class="weui-cells__title">法律维权提交</div>
+<div class="weui-cells weui-cells_form">
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+<div class="weui-cell__bd">
+<input class="weui-input" type="text" placeholder="请输入标题" id="Title" />
+</div>
+</div>
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">发生时间</label></div>
+<div class="weui-cell__bd">
+<input class="weui-input" type="text" placeholder="请输入发生时间" id="Time" onclick="WdatePicker({ dateFmt:'yyyy/MM/dd'});" />
+</div>
+</div>
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">发生地点</label></div>
+<div class="weui-cell__bd">
+<input class="weui-input" type="text" placeholder="请输入发生地点" id="Place" />
+</div>
+</div>
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">涉及金额</label></div>
+<div class="weui-cell__bd">
+<input class="weui-input" type="text" placeholder="请输入涉及金额" id="Money">
+</div>
+</div>
+<div class="weui-cell">
+<div class="weui-cell__bd">
+<textarea class="weui-textarea" placeholder="请输入内容描述" rows="3" id="Content"></textarea>
+</div>
+</div>
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+<div class="weui-cell__bd">
+<input class="weui-input" type="text" placeholder="请输入姓名" ID="Name">
+</div>
+</div>
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">电话</label></div>
+<div class="weui-cell__bd">
+<input class="weui-input" type="text" placeholder="请输入电话" id="Phone">
+</div>
+</div>
+</div>
+<div class="weui-btn-area">
+<a class="weui-btn weui-btn_primary" href="javascript:" onClick="subButton()">咨询律师</a>
+</div>
+
+<div class="zixun_pic">
+<img src="{$CssDir/}images/zixun_pic1.jpg" alt="{$SiteName/}" style="width:100%;" />
+</div>
+</div>
+{ZL.Label id="全站底部"/}
+</body>
+</html>
+<script src="/JS/DatePicker/WdatePicker.js"></script>
+<script>
+//检测固顶事件
+var IO=document.getElementById('home_nav'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+    IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+        ".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+    var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+     if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+    if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+    IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+
+//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+var buser = new B_User();
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data)
+		$(".user_login").hide();
+		$(".user_reg").hide();
+		$(".user_cen").html("欢迎您,"+data.UserName+"!");
+        $(".home_user_login>a:nth-child(1)").hide();
+        $(".home_user_login p:nth-child(2)").hide();
+        $(".home_user_login p:nth-child(3) a").html("欢迎您,"+data.UserName+"!");
+		$(".user_cen").show();
+		$(".user_logout").show();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+};
+
+/*显示搜索框*/
+function isSearch(){
+    $(".home_search").show();
+    $(".home_navbar").hide();
+    $(".home_search .form-control").focus();
+}
+/*关闭搜索框*/
+function isClose(){
+    $(".home_search").hide();
+    $(".home_navbar").show();
+}
+
+
+ $(".kefu_qrcode img").attr("src","/Common/common.ashx?url="+encodeURI(window.location.href));
+ 
+//手机下右侧导航菜单效果
+$(function () {
+    $('button.navbar-toggle').click(function () {
+        $('body').toggleClass('out');
+        $('nav.navbar-fixed-top').toggleClass('out');
+        if ($('body').hasClass('out')) {
+            $(this).focus();
+        }
+        else {
+            $(this).blur();
+        }
+    });
+});
+$(document).click(function (e) {
+    if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+        e.preventDefault();
+        $('button.navbar-toggle').trigger('click');
+    }
+}).keyup(function (e) {
+    if (e.keyCode == 27 && $('body').hasClass('out')) {
+        $('button.navbar-toggle').trigger('click');
+    }
+});
+
+//微信二维码
+$(".home_weixin img").hide();
+$(".home_weixin a").mouseover(function(){
+    $(".home_weixin img").show();
+}).mouseout(function(){
+    $(".home_weixin img").hide();
+});
+
+function subButton(){
+    if($("#Title").val()=="" || $("#Title").val()==null){
+        swal("验证未通过","标题未填写，请填写标题");
+    }else if($("#Time").val()=="" || $("#Time").val()==null){
+        swal("验证未通过","发生时间未填写，请选择发生时间");
+    }else if($("#Place").val()=="" || $("#Place").val()==null){
+        swal("验证未通过","发生地点未填写，请填写发生地点");
+    }else if($("#Money").val()=="" || $("#Money").val()==null){
+        swal("验证未通过","涉及金额为空，请选择涉及金额");
+    }else if($("#Content").val()=="" || $("#Content").val()==null){
+        swal("验证未通过","内容描述为空，请选择内容描述");
+    }else if($("#Name").val()=="" || $("#Name").val()==null){
+        swal("验证未通过","姓名为空，请选择联系人姓名");
+    }else if($("#Phone").val()=="" || $("#Phone").val()==null){
+        swal("验证未通过","电话为空，请选择联系人电话");
+    }else{
+        var pubjson = {
+            PubTitle:$("#Title").val(),
+            fssj:$("#Time").val(),
+            fsdd:$("#Place").val(),
+            sjje:$("#Money").val(),
+            name:$("#Name").val(),
+            phone:$("#Phone").val(),
+            PubContent:$("#Content").val()
+        }
+        $.post("/API/Mod/Pub.ashx?action=add&pubid=7&id=50",{data:JSON.stringify(pubjson)},function(data){
+            data = JSON.parse(data);
+            if(data.retcode=="1"){
+                swal({
+                  title: "成功",
+                  text: "提交成功，我们将在最快时间给您答复",
+                  type: "success",
+                  confirmButtonText: "明白",
+                  closeOnConfirm: false
+                },
+                function(){
+                  window.location.href=window.location.href;
+                });
+            }
+        });
+    }
+}
+
+</script>

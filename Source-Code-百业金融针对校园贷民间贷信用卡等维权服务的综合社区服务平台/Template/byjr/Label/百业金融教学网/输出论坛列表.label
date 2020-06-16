@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>345</LabelID>
+    <LabelName>输出论坛列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>百业金融教学网</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>ZL_Guest_Bar LEFT JOIN ZL_Guestcate ON ZL_Guest_Bar.CateID=ZL_Guestcate.Cateid</LabelTable>
+    <LabelField>CateName,Title,ID,ZL_Guest_Bar.CateID</LabelField>
+    <LabelWhere>ZL_Guest_Bar.Status=99 And Pid=0</LabelWhere>
+    <LabelOrder>ID DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;
+&lt;a href="/PClass?id={Field="CateID"/}" class="navname"&gt;[{Field="CateName"/}]&lt;/a&gt;
+&lt;a href="/PItem?id={Field="ID"/}"&gt;{Field="Title"/}&lt;/a&gt;
+&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Guest_Bar","tb_s":"ZL_Guestcate"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

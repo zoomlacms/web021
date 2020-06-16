@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>323</LabelID>
+    <LabelName>输出指定节点视频列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>百业金融教学网</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,0,1,节点ID|ShowNum,3,1,显示数</LabelParam>
+    <LabelTable>ZL_CommonModel LEFT JOIN ZL_C_video ON ZL_CommonModel.ItemID=ZL_C_video.ID</LabelTable>
+    <LabelField>Title,GeneralID,NodeID,pic,gmrs,jg</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID) And Status=99</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Repeate}
+&lt;div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding5"&gt;
+&lt;div class="video_pen_l"&gt;
+&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" alt="{Field="Title"/}"&gt;
+&lt;b&gt;&lt;img src="{ZL:GetPicUrl({Field="pic"/})/}" alt="{Field="Title"/}"&gt;&lt;/b&gt;
+&lt;div class="video_pen_c"&gt;
+&lt;h4&gt;{Field="Title"/}&lt;/h4&gt;
+&lt;p&gt;￥ {ZL:GetMoney({Field="jg"/},2,1)/}&lt;span&gt;{Field="gmrs"/}人学习&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_CommonModel","tb_s":"ZL_C_video"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="msapplication-TileColor" content="#1A0066"/>
+<meta name="msapplication-TileImage" content="/images/win8_symbol_140x140.png"/>
+<title>{$SiteName/}_首页</title>
+{$MetaKeywords/}
+{$MetaDescription/}
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+{ZL:GetCSS(2,0)/}
+<script src="/js/scrolltopcontrol.js"></script>
+<script src="/JS/Controls/B_User.js"></script>
+</head>
+<body>
+<div class="home_top visible-lg" >
+<div class="container">
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<p>你好，欢迎来到{$SiteName/}！
+<a href="/User/Login?ReturnUrl=/" class="user_login">登录</a>
+<a href="/User/Register" class="user_reg">注册</a>
+<a href="/User" class="user_cen"></a>	
+<a href="javascript:;" onClick="LogoutFun();"  class="user_logout">退出</a>
+</p>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+<div class="home_top_shop fa-pull-right">
+<span><a href="{ZL:GetNodeLinkUrl(3)/}">视频</a><a href="{ZL:GetNodeLinkUrl(6)/}">资料</a><a href="/index">评测</a><a href="tel:13133848691"> 在线客服</a> <a><i class="fa fa-phone"></i>服务热线</a>
+<strong style="color:#0082d7;">13133848691</strong></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--home_top end-->
+
+<div class="home_navbar">
+<nav class="navbar navbar-default ">
+<div class="container">
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="margin-top:1.5em;">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<h1><a class="navbar-brand" href="/"><img src="{$CssDir/}images/logo.svg" alt="{$SiteName/}" class="pull-left"></a></h1>
+</div>
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+<ul class="nav navbar-nav home_navbar">
+<li ><a href="/" class="active">首页</a></li>
+<li id="nid1"> <a href="/PClass?id=4">校园贷法律维权</a></li>
+<li id="nid2"><a href="/PClass?id=5">金融营销技术</a></li>
+<li id="nid3"><a href="{ZL:GetNodeLinkUrl(11)/}">信用卡篇</a></li>
+<li id="nid14"><a href="{ZL:GetNodeLinkUrl(16)/}">金融法律维权</a></li>
+<li id="nid4"><a href="/PClass?id=28">网贷</a></li>
+<li id="nid5"><a href="{ZL:GetNodeLinkUrl(6)/}">在线定制方案</a></li>
+<li><a href="javascript:;" onClick="isSearch();"><i class="fa fa-search"></i></a></li>
+<li class="home_weixin"><a href="javascript:;"><i class="fa fa-weixin"></i></a>
+<div class="qrcode"><img src="{$CssDir/}images/qrcode.jpg" alt="微信二维码"></div>
+</li>
+</ul>
+
+<ul class="nav navbar-nav home_search">
+<form class="navbar-form navbar-left" role="search" action="/Search/SearchList">
+<i class="fa fa-search"></i>
+<input type="text" class="form-control" placeholder="输入关键字回车查询" name="keyword">
+<a onclick="isClose();"><i class="fa fa-close"></i></a>
+</form>
+</ul>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+</div>
+<!-- home_nav end! -->
+
+<div class="container ">
+<div class="home_top_search hidden-xs">
+<a class="logo" href="/"><h1><img src="{$LogoUrl/}" alt="{$SiteName/}"></h1></a>
+<form class="navbar-form navbar-left home_main_search" role="search" method="get" action="/Search/SearchList">
+<div class="input-group">
+<input type="text" class="form-control" name="keyword" placeholder="全站检索">
+<span class="input-group-btn">
+<button type="submit" class="btn btn-default">搜索</button>
+</span>
+</div><!-- /input-group -->
+</form>
+<div class="clearfix"></div>
+</div>
+
+<div class="top_nav home_nav hidden-xs" id="home_nav">
+<ul>
+<li><a href="/">首页</a></li>
+<li><a href="/Class_36/Default.aspx">校园贷法律维权</a></li>
+<li><a href="/Class_22/Default.aspx">金融营销技术</a></li>
+<li><a href="/PClass?id=4">信用卡社区</a></li>
+<li><a href="/PClass?id=5">民间贷</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(16)/}">金融法律维权</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(6)/}">定制贷款方案</a></li>
+<li><a href="{ZL:GetInfoUrl(160)/}">加入会员</a></li>
+<div class="clearfix"></div>
+</ul>
+</div>
+
+<div class="top_nav2">
+<div class="top_nav2_con">
+<strong><a href="/PClass?id=4"><i class="fa fa-credit-card" aria-hidden="true"></i><br/>银行贷</a></strong>
+<ul>
+<li><a href="/PClass?id=24">购房贷</a></li>
+<li><a href="/PClass?id=8">购车贷</a></li>
+<li><a href="/PClass?id=7">个人信贷</a></li>
+<li><a href="/PClass?id=23">企业贷</a></li>
+<li><a href="/PClass?id=57">消费贷</a></li>
+<li><a href="/PClass?id=22">创业贷</a></li>
+<div class="clearfix"></div>
+</ul>
+</div>
+<div class="top_nav2_con top_nav2_con4s">
+<strong><a href="/PClass?id=5"><i class="fa fa-area-chart" aria-hidden="true"></i><br/>民间贷</a></strong>
+<ul>
+<li><a href="/PClass?id=16">车抵贷</a></li>
+<li><a href="/PClass?id=17">房抵贷</a></li>
+<li><a href="/PClass?id=18">个人信贷</a></li>
+<li><a href="/PClass?id=19">企业贷</a></li>
+<div class="clearfix"></div>
+</ul>
+</div>
+<div class="top_nav2_con top_nav2_con4s">
+<strong><a href="/PClass?id=30"><span><img src="{$CssDir/}images/lvwq.png" alt="{$SiteName/}" /></span>法律维权</a></strong>
+<ul>
+<li><a href="/PClass?id=30">网贷维权</a></li>
+<li><a href="/PClass?id=31">学生维权</a></li>
+<li><a href="/PClass?id=55">高利维权</a></li>
+<li><a href="/PClass?id=56">催收维权</a></li>
+<div class="clearfix"></div>
+</ul>
+</div>
+<div class="top_nav2_con top_nav2_con4s">
+<strong><a href="/PClass?id=38"><i class="fa fa-money" aria-hidden="true"></i><br/>信用卡</a></strong>
+<ul>
+<li><a href="/PClass?id=39">办卡</a></li>
+<li><a href="/PClass?id=40">分期贷款</a></li>
+<li><a href="/PClass?id=41">提额</a></li>
+  <li><a href="/PClass?id=42">养卡</a></li>
+<div class="clearfix"></div>
+</ul>
+</div>
+<div class="top_nav2_con top_nav2_con4s">
+<strong><a href="/PClass?id=6"><i class="fa fa-line-chart" aria-hidden="true"></i><br/>金融同行</a></strong>
+<ul>
+<li><a href="/PClass?id=9">营销技术</a></li>
+<li><a href="/PClass?id=13">产品方案</a></li>
+<li><a href="/PClass?id=15">风控</a></li>
+  <li><a href="/PClass?id=43">资源共享</a></li>
+<div class="clearfix"></div>
+</ul>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+<!--home_main_nav end-->
+
+<div class="container home_bank">
+<div class="row">
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<!-- Indicators -->
+<ol class="carousel-indicators">
+<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+</ol>
+<!-- Wrapper for slides -->
+<div class="carousel-inner" role="listbox">
+<div class="item active home_bg1"></div>
+<div class="item home_bg2"></div>
+<div class="item home_bg3"></div>
+</div>
+<!-- Controls -->
+<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+<span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+<span class="sr-only">Next</span>
+</a>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 home_bank_r">
+<div class="home_bank_login">
+<div class="login_t">快速登录</div>
+<ul>
+<li><a href="#">
+<span class="fa-stack fa-lg"> <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-weibo fa-stack-1x fa-inverse"></i></span><br/>新浪微博</a></li>
+<li><a href="#">
+<span class="fa-stack fa-lg"> <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-wechat fa-stack-1x fa-inverse"></i></span><br/>官方微信</a></li>
+<li><a href="#">
+<span class="fa-stack fa-lg"> <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-qq fa-stack-1x fa-inverse"></i></span><br/>QQ空间</a></li>
+<div class="clearfix"></div>
+</ul><div class="clearfix"></div>
+</div>
+<div class="home_user_login">
+<a href="/User/Login" class="btn btn-info">登录</a>
+<p class="pull-right">立即<a href="/User/Register">免费注册</a></p>
+<p class="text-center"><a href="/User"></a></p>
+</div>
+
+<div class="focus_list">
+<ul>
+<li class="focus_tu1"><a href="{ZL:GetNodeLinkUrl(26)/}"><i></i>办卡</a></li>
+<li class="focus_tu2"><a href="{ZL:GetNodeLinkUrl(14)/}"><i></i>急用钱</a></li>
+<li class="focus_tu3 "><a href="/Class_10/NodePage.aspx"><i></i>校园贷法律维权</a></li>
+<li class="focus_tu4"><a href="/PClass?id=29"><i></i>银行贷</a></li>
+<li class="focus_tu5"><a href="{ZL:GetLastinfo(1)/}"><i></i>利息计算器</a></li>
+<li class="focus_tu6"><a href="{ZL:GetNodeLinkUrl(3)/}"><i></i>课堂</a></li>
+<li class="focus_tu7"><a href="/Class_10/NodePage.aspx"><i></i>法律维权</a></li>
+<li class="focus_tu8"><a href="/Index"><i></i>发帖</a></li>
+<div class="clearfix"></div>
+</ul>
+<p><a href="http://report.12377.cn:13225/toreportinputNormal_anis.do?spm=a21bo.50862.0.0.5dcec6f7arZd4A&file=toreportinputNormal_anis.do" target="_blank">互联网金融维权举报专区</a>
+<a href="/Class_10/NodeNews.aspx" target="_blank">在线定制最优贷款方案</a></p>
+</div>
+</div>
+</div>
+
+<div class="home_fixed_l hidden-xs">
+<dl>
+<dt><a href="/Index">论谈百科</a></dt>
+<dd><a href="{ZL:GetNodeLinkUrl(14)/}">银行类贷款</a></dd>
+<dd><a href="{ZL:GetNodeLinkUrl(23)/}">民间贷款方案</a></dd>
+<dd><a href="{ZL:GetNodeLinkUrl(20)/}">信用卡技术</a></dd>
+<dd><a href="{ZL:GetNodeLinkUrl(36)/}">校园贷维权</a></dd>
+<dd><a href="{ZL:GetNodeLinkUrl(21)/}">金融法律维权</a></dd>
+<hr/>
+<dd><a href="/PClass?id=33">车辆贷款</a></dd>
+<dd><a href="/PClass?id=36">消费贷款</a></dd>
+<dd><a href="/PClass?id=32">房屋抵押贷</a></dd>
+<dd><a href="/PClass?id=35">企业贷款</a></dd>
+<hr/>
+<dd><a href="{ZL:GetNodeLinkUrl(46)/}">金融营销技术</a></dd>
+<dd><a href="{ZL:GetNodeLinkUrl(43)/}">信贷风控技术</a></dd>
+<dd><a href="{ZL:GetNodeLinkUrl(45)/}">融资产品流程</a></dd>
+<dd><a href="{ZL:GetLastinfo(10)/}">在线定制贷款</a></dd>
+</dl>
+</div><!-- home_fixed_l end! -->
+</div>
+<!-- home_bank end!-->
+
+
+<div class="container home_edu">
+<div class="row">
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+<div class="home_edu_list">
+<div class="home_edu_list_t"><a href="{ZL:GetNodeLinkUrl(14)/}">银行类贷款解析</a><span class="pull-right"><a href="{ZL:GetNodeLinkUrl(14)/}">More+</a></span></div>
+<ul>
+{ZL.Label id="首页视频列表_按节点抽取" NodeID="14" ShowNum="4" /}
+</ul>
+<div class="home_edu_list_t"><a href="{ZL:GetNodeLinkUrl(23)/}">民间各类贷款技术</a><span class="pull-right"><a href="{ZL:GetNodeLinkUrl(23)/}">More+</a></span></div>
+<ul>
+{ZL.Label id="首页视频列表_按节点抽取" NodeID="23" ShowNum="4" /}
+</ul>
+<div class="home_edu_list_t"><a href="{ZL:GetNodeLinkUrl(36)/}">校园贷法律维权</a><span class="pull-right"><a href="{ZL:GetNodeLinkUrl(36)/}">More+</a></span></div>
+<ul>
+{ZL.Label id="首页视频列表_按节点抽取" NodeID="36" ShowNum="4" /}
+</ul>
+<div class="home_edu_list_t"><a href="{ZL:GetNodeLinkUrl(20)/}">信用卡技术解析</a><span class="pull-right"><a href="{ZL:GetNodeLinkUrl(20)/}">More+</a></span></div>
+<ul>
+{ZL.Label id="首页视频列表_按节点抽取" NodeID="20" ShowNum="4" /}
+</ul>
+<div class="home_edu_list_t"><a href="{ZL:GetNodeLinkUrl(21)/}">金融法律维权解析</a><span class="pull-right"><a href="{ZL:GetNodeLinkUrl(21)/}">More+</a></span></div>
+<ul>
+{ZL.Label id="首页视频列表_按节点抽取" NodeID="21" ShowNum="4" /}
+</ul>
+<div class="home_edu_list_t"><a href="{ZL:GetNodeLinkUrl(22)/}">金融业务技术与营销</a><span class="pull-right"><a href="{ZL:GetNodeLinkUrl(22)/}">More+</a></span></div>
+<ul>
+{ZL.Label id="首页视频列表_按节点抽取" NodeID="22" ShowNum="4" /}
+</ul>
+
+</div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 home_edu_r">
+<div class="home_edu_r_t">社区活动<span class="pull-right"><a href="{ZL:GetNodeLinkUrl(19)/}">More+</a></span></div>
+<ul>
+{ZL.Label id="首页社区活动标题图片简介_列表" NodeID="19" ShowNum="13" SysLength="200" /}
+</ul>
+</div>
+</div>
+</div>
+<!--home_edu end-->
+
+
+<div class="container home_banner hidden">
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<a href="{ZL:GetNodeLinkUrl(6)/}">
+<img src="{$CssDir/}images/classify_pic1.png" alt="专家在线">
+<p>专家在线</p>
+</a>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<a href="{ZL:GetNodeLinkUrl(14)/}">
+<img src="{$CssDir/}images/classify_pic2.png" alt="视频中心">
+<p>视频中心</p>
+</a>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<a href="/index">
+<img src="{$CssDir/}images/classify_pic3.png" alt="社区论坛">
+<p>社区论坛</p>
+</a>
+</div>
+</div>
+</div>
+<!-- home_banner end! -->
+
+<div class="container home_club">
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 home_club_list" >
+<div class="home_info_t">银行社论谈<a href="{ZL:GetNodeLinkUrl(39)/}" class="pull-right">More+</a></div>
+{ZL.Label id="输出指定节点第一条" NodeID="39" /}
+<ul>
+{ZL.Label id="输出指定节点第二条开始" NodeID="39" ShowNum="5" /}
+</ul>
+</div>
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 home_club_list" >
+<div class="home_info_t">民间贷款论谈<a href="{ZL:GetNodeLinkUrl(40)/}" class="pull-right">More+</a></div>
+{ZL.Label id="输出指定节点第一条" NodeID="40" /}
+<ul>
+{ZL.Label id="输出指定节点第二条开始" NodeID="40" ShowNum="5" /}
+</ul>
+</div>
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 home_club_list" >
+<div class="home_info_t">法律维权<a href="{ZL:GetNodeLinkUrl(41)/}" class="pull-right">More+</a></div>
+{ZL.Label id="输出指定节点第一条" NodeID="41" /}
+<ul>
+{ZL.Label id="输出指定节点第二条开始" NodeID="41" ShowNum="5" /}
+</ul>
+</div>
+
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 home_club_list" >
+<div class="home_info_t">校园贷维权<a href="{ZL:GetNodeLinkUrl(42)/}" class="pull-right">More+</a></div>
+{ZL.Label id="输出指定节点第一条" NodeID="42" /}
+<ul>
+{ZL.Label id="输出指定节点第二条开始" NodeID="42" ShowNum="5" /}
+</ul>
+</div>
+
+
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 home_club_list" >
+<div class="home_info_t">金融同行技术交流<a href="{ZL:GetNodeLinkUrl(43)/}" class="pull-right">More+</a></div>
+{ZL.Label id="输出指定节点第一条" NodeID="43" /}
+<ul>
+{ZL.Label id="输出指定节点第二条开始" NodeID="43" ShowNum="5" /}
+</ul>
+</div>
+
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 home_club_list" >
+<div class="home_info_t">信用卡技术<a href="{ZL:GetNodeLinkUrl(44)/}" class="pull-right">More+</a></div>
+{ZL.Label id="输出指定节点第一条" NodeID="44" /}
+<ul>
+{ZL.Label id="输出指定节点第二条开始" NodeID="44" ShowNum="5" /}
+</ul>
+</div>
+
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 home_club_list" >
+<div class="home_info_t">金融同行产品教学<a href="{ZL:GetNodeLinkUrl(45)/}" class="pull-right">More+</a></div>
+{ZL.Label id="输出指定节点第一条" NodeID="45" /}
+<ul>
+{ZL.Label id="输出指定节点第二条开始" NodeID="45" ShowNum="5" /}
+</ul>
+</div>
+
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 home_club_list" >
+<div class="home_info_t">金融产品营销技术<a href="{ZL:GetNodeLinkUrl(46)/}" class="pull-right">More+</a></div>
+{ZL.Label id="输出指定节点第一条" NodeID="46" /}
+<ul>
+{ZL.Label id="输出指定节点第二条开始" NodeID="46" ShowNum="5" /}
+</ul>
+</div>
+
+
+
+
+</div>
+</div>
+<!-- home_club end! -->
+
+<div class="container home_info">
+<div class="row">
+<div class="home_info_t">今日头条<a href="{ZL:GetNodeLinkUrl(47)/}" class="pull-right">More+</a></div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 padding0">
+{ZL.Label id="输出指定节点第一条_今日头条" NodeID="47" /}
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 home_info_two">
+<ul>
+{ZL.Label id="输出指定节点第二条开始五条_今日头条" NodeID="47" ShowNum="5" /}
+</ul>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 home_info_three">
+<ul>
+{ZL.Label id="输出指定节点第七条开始两条_今日头条" NodeID="47" ShowNum="2" /}
+</ul>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 home_info_r">
+<ul>
+{ZL.Label id="输出指定节点第九条开始_今日头条" NodeID="47" ShowNum="4" /}
+</ul>
+</div>
+</div>
+</div>
+<!--home_info end-->
+
+<div class="container home_map">
+<div class="row">
+<h2>论坛地图</h2>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="home_map_list" target="_blank">
+<a href="{ZL:GetNodeLinkUrl(3)/}">
+<div class="media">
+<div class="media-left media-middle"><span><img src="/UploadFiles/bbs/06.png" alt="" /></span></div>
+<div class="media-body media-middle">
+<h4>教学课堂</h4>
+<p>今日新增：<span>({ZL.Label id="输出指定贴吧帖子数_今日" CateID="14" /})</span></p>
+<p>主题：<span>{ZL.Label id="输出指定节点文章数" NodeID="3" /}</span> 帖数：<span>{ZL.Label id="输出指定贴吧帖子数" CateID="14" /}</span></p>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="home_map_list">
+<a href="{ZL:GetNodeLinkUrl(36)/}" target="_blank">
+<div class="media">
+<div class="media-left media-middle"><span><img src="/UploadFiles/bbs/07.png" alt="" /></span></div>
+<div class="media-body media-middle">
+<h4>校园贷维权</h4>
+<p>今日新增：<span>({ZL.Label id="输出指定贴吧帖子数_今日" CateID="7" /})</span></p>
+<p>主题：<span>{ZL.Label id="输出指定节点文章数" NodeID="36" /}</span> 帖数：<span>{ZL.Label id="输出指定贴吧帖子数" CateID="7" /}</span></p>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="home_map_list">
+<a href="{ZL:GetNodeLinkUrl(21)/}" target="_blank">
+<div class="media">
+<div class="media-left media-middle"><span><img src="/UploadFiles/bbs/08.png" alt="" /></span></div>
+<div class="media-body media-middle">
+<h4>金融维权</h4>
+<p>今日新增：<span>({ZL.Label id="输出指定贴吧帖子数_今日" CateID="8" /})</span></p>
+<p>主题：<span>{ZL.Label id="输出指定节点文章数" NodeID="21" /}</span> 帖数：<span>{ZL.Label id="输出指定贴吧帖子数" CateID="8" /}</span></p>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="home_map_list">
+<a href="{ZL:GetNodeLinkUrl(14)/}" target="_blank">
+<div class="media">
+<div class="media-left media-middle"><span><img src="/UploadFiles/bbs/09.png" alt="" /></span></div>
+<div class="media-body media-middle">
+<h4>银行类贷款</h4>
+<p>今日新增：<span>({ZL.Label id="输出指定贴吧帖子数_今日" CateID="10" /})</span></p>
+<p>主题：<span>{ZL.Label id="输出指定节点文章数" NodeID="14" /}</span> 帖数：<span>{ZL.Label id="输出指定贴吧帖子数" CateID="10" /}</span></p>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="home_map_list">
+<a href="{ZL:GetNodeLinkUrl(23)/}" target="_blank">
+<div class="media">
+<div class="media-left media-middle"><span><img src="/UploadFiles/bbs/10.png" alt="" /></span></div>
+<div class="media-body media-middle">
+<h4>民间贷款</h4>
+<p>今日新增：<span>({ZL.Label id="输出指定贴吧帖子数_今日" CateID="22" /})</span></p>
+<p>主题：<span>{ZL.Label id="输出指定节点文章数" NodeID="23" /}</span> 帖数：<span>{ZL.Label id="输出指定贴吧帖子数" CateID="22" /}</span></p>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="home_map_list">
+<a href="{ZL:GetNodeLinkUrl(22)/}" target="_blank">
+<div class="media">
+<div class="media-left media-middle"><span><img src="/UploadFiles/bbs/11.png" alt="" /></span></div>
+<div class="media-body media-middle">
+<h4>金融营销技术</h4>
+<p>今日新增：<span>({ZL.Label id="输出指定贴吧帖子数_今日" CateID="23" /})</span></p>
+<p>主题：<span>{ZL.Label id="输出指定节点文章数" NodeID="22" /}</span> 帖数：<span>{ZL.Label id="输出指定贴吧帖子数" CateID="23" /}</span></p>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="home_map_list">
+<a href="{ZL:GetInfoUrl(160)/}" target="_blank">
+<div class="media">
+<div class="media-left media-middle"><span><img src="/UploadFiles/bbs/12.png" alt="" /></span></div>
+<div class="media-body media-middle">
+<h4>加入会员</h4>
+<p>今日新增：<span>({ZL.Label id="输出指定贴吧帖子数_今日" CateID="24" /})</span></p>
+<p>主题：<span>{ZL.Label id="输出指定节点文章数" NodeID="20" /}</span> 帖数：<span>{ZL.Label id="输出指定贴吧帖子数" CateID="24" /}</span></p>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="home_map_list">
+<a href="{ZL:GetNodeLinkUrl(20)/}" target="_blank">
+<div class="media">
+<div class="media-left media-middle"><span><img src="/UploadFiles/bbs/13.png" alt="" /></span></div>
+<div class="media-body media-middle">
+<h4>信用卡使用</h4>
+<p>今日新增：<span>({ZL.Label id="输出指定贴吧帖子数_今日" CateID="25" /})</span></p>
+<p>主题：<span>{ZL.Label id="输出指定节点文章数" NodeID="7" /}</span> 帖数：<span>{ZL.Label id="输出指定贴吧帖子数" CateID="25" /}</span></p>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+ <!-- home_map end! -->
+ 
+<div class="container home_friend">
+<h2>友情链接<a href="{ZL:GetNodeLinkUrl(10)/}" class="pull-right">More+</a></h2>
+<div class="row">
+</div>
+<ul>
+{ZL.Label id="首页友情链接列表" ShowNum="20" NodeID="10" /}
+<div class="clearfix"></div>
+</ul>
+</div>
+
+<div class="home_foot">
+<div class="container">
+<div class="row">
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+<ul>
+<li><a href="{ZL:GetInfoUrl(1)/}">关于我们</a></li>
+<li><a href="{ZL:GetInfoUrl(2)/}">联系我们</a></li>
+<li><a href="{ZL:GetInfoUrl(3)/}">商务合作</a></li>
+<li><a href="{ZL:GetInfoUrl(4)/}">社区公约</a></li>
+<li><a href="{ZL:GetInfoUrl(5)/}">人才招聘</a></li>
+<li><a href="{ZL:GetInfoUrl(6)/}">版权申明</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(10)/}">友情链接</a></li>
+</ul>
+<p>{$Copyright/}</p>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 foot_qrcode">
+<img src="{$CssDir/}images/qrcode.jpg" alt="微信公众号">
+<p>关注微信公众号</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="kefu">
+<ul>
+<li><a href="tel:13133848691"><span>联系我们</span><i class="fa fa-phone"></i></a><div class="clearfix"></div></li>
+<li><a href="http://wpa.qq.com/msgrd?v=3&uin=3471940849&site=qq&menu=yes" target="_blank"><span>在线客服</span><i class="fa  fa-qq"></i></a><div class="clearfix"></div></li>
+<li class="kefu_wechat"><a href="javascript:;"><span><img src="{$CssDir/}images/qrcode.jpg" alt="微信二维码" /></span><i class="fa fa-wechat"></i></a><div class="clearfix"></div></li>
+<li><a href="/Guest" target="_blank"><span>留言咨询</span><i class="fa fa-pencil"></i></a><div class="clearfix"></div></li>
+</ul>
+</div>
+
+<div class="zixun">
+<div class="zixun_c">
+<div class="zixun_ct">在线QQ客服</div>
+<div class="zixun_cq">
+<ul>
+<li><a href="#"><i class="fa fa-qq"></i> QQ客服</a></li>
+<li><a href="#"><i class="fa fa-qq"></i> QQ客服</a></li>
+<li><a href="#"><i class="fa fa-qq"></i> QQ客服</a></li>
+<li><a href="#"><i class="fa fa-qq"></i> QQ客服</a></li>
+</ul>
+</div>
+</div>
+<div class="zixun_t"><i class="fa fa fa-commenting"></i>在线咨询</div>
+</div>
+
+</body>
+</html>
+<script>
+//检测固顶事件
+var IO=document.getElementById('home_nav'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+    IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+        ".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+    var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+     if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+    if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+    IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+
+//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+var buser = new B_User();
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data)
+		$(".user_login").hide();
+		$(".user_reg").hide();
+		$(".user_cen").html("欢迎您,"+data.UserName+"!");
+        $(".home_user_login>a:nth-child(1)").hide();
+        $(".home_user_login p:nth-child(2)").hide();
+        $(".home_user_login p:nth-child(3) a").html("欢迎您,"+data.UserName+"!");
+		$(".user_cen").show();
+		$(".user_logout").show();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+};
+
+/*显示搜索框*/
+function isSearch(){
+    $(".home_search").show();
+    $(".home_navbar").hide();
+    $(".home_search .form-control").focus();
+}
+/*关闭搜索框*/
+function isClose(){
+    $(".home_search").hide();
+    $(".home_navbar").show();
+}
+
+
+ $(".kefu_qrcode img").attr("src","/Common/common.ashx?url="+encodeURI(window.location.href));
+ 
+//手机下右侧导航菜单效果
+$(function () {
+    $('button.navbar-toggle').click(function () {
+        $('body').toggleClass('out');
+        $('nav.navbar-fixed-top').toggleClass('out');
+        if ($('body').hasClass('out')) {
+            $(this).focus();
+        }
+        else {
+            $(this).blur();
+        }
+    });
+});
+$(document).click(function (e) {
+    if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+        e.preventDefault();
+        $('button.navbar-toggle').trigger('click');
+    }
+}).keyup(function (e) {
+    if (e.keyCode == 27 && $('body').hasClass('out')) {
+        $('button.navbar-toggle').trigger('click');
+    }
+});
+
+//微信二维码
+$(".home_weixin img").hide();
+$(".home_weixin a").mouseover(function(){
+    $(".home_weixin img").show();
+}).mouseout(function(){
+    $(".home_weixin img").hide();
+});
+</script>

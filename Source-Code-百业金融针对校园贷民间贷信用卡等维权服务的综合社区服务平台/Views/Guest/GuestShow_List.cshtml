@@ -1,0 +1,13 @@
+﻿@using System.Data
+@using ZoomLa.Common
+@using ZoomLa.BLL
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    Model.url = "GuestShow_Data";
+}
+@functions{
+    public string GetUserName(int userid)
+    {
+        return new B_User().GetSelect(userid).UserName;
+    }
+}

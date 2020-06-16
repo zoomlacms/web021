@@ -1,0 +1,196 @@
+﻿{ZL.Source id="文章模型数据源标签"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="文章模型数据源标签" FD="Title" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="文章模型数据源标签" FD="Tagkey" page="0"/}" />
+<meta name="Description" content="{SField sid="文章模型数据源标签" FD="Title" page="0"/}">
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="/JS/Controls/B_User.js"></script>
+<style>
+.home_foot { margin-top:0;}
+</style>
+</head>
+<body style="background:#f9f9f9;">
+{ZL.Label id="全站头部"/}
+
+<!--<div class="joinus-moddule joinus-moddule-back01">
+<div class="joinus-moddule-back011"></div>
+</div>-->
+
+<div role="tabpanel" class="container member">
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">如何加入会员</a></li>
+<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">会员优势</a></li>
+<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">会员等级</a></li>
+<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">会员权益</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content member_c">
+<div role="tabpanel" class="tab-pane active" id="home">
+<p>
+第一类，日均余额在20万元或达到5星级可办理的理财金账户，这类是最普通的。
+第二类，日均余额在100万元并达到6星级或7星级可办理的工银财富卡客户，这类算是比较高端的了。
+第三类，日均余额在800万元以上并申请私人银行通过的客户，这类客户均有专门的客户经理服务，属于金字塔顶端。
+好处是可以不用排队，可以使用免年费，免小额账户管理费，可以汇款的时候手续费优惠。具体
+</p>
+</div>
+<div role="tabpanel" class="tab-pane" id="profile">
+<p>
+　　1.多项费用减免
+
+　　2.特约商户优惠
+
+　　3.免费贵宾专刊
+
+　　工商银行金卡专家理财服务
+
+　　1.专家理财团队
+
+　　2.专职客户经理
+
+　　3.丰富的投资理财产品
+
+　　4.贷款服务，张弛有道
+
+　　5.及时的理财资
+</p>
+</div>
+<div role="tabpanel" class="tab-pane" id="messages">
+<p>
+1）七星级客户：星点值在80000（含）以上。
+　　（2）六星级客户：星点值10000（含）～80000。
+　　（3）五星级客户：星点值2000（含）～10000。
+　　（4）四星级客户：星点值500（含）～2000。
+　　（5）三星级客户：星点值50（含）～500。
+　　（6）准星级客户：星点值0（不含）～50。
+　　星点值是在工行（全行范围）近六个月的资产、负债和中间业务进行汇总计算出来的。
+　　中间业务
+　　中间业务指标由投资理财类交易、卡消费交易、结算类交易三个细项组成，指标计算口径为半年累计交易金额。若单次交易金额超过该项业务手续费收取标准上限金额，则以上限金额作为该次交易金额计入指标统计。若单次交易已享受工行费率优惠，则交易金额按优惠比例折算后再计入指标统计。
+　　（1）投资理财类
+　　交易指标主要包括：基金购买与赎回（不含货币基金）、理财产品购买（不含灵通快线）、国债购买、保险购买、黄金买卖、外汇买卖等。每万元投资理财交易额可获得200星点值。
+　　（2）卡消费
+　　交易指标主要包括灵通卡、理财金账户卡（含工银财富理财金账户卡）、信用卡、贷记卡、准贷记卡等各卡种通过POS刷卡消费产生的交易。每万元投资理财交易额可获得400星点值。
+　　（3）结算类
+　　交易指主要包括异地存取款、异地汇款、跨行汇款、速汇款等。每万元结算类交易额可获得200星点值。
+　　5星客户可以无条件办理工行VIP 大客户理财金卡
+</p>
+</div>
+<div role="tabpanel" class="tab-pane" id="settings">
+<p>
+
+</p>
+</div>
+</div>
+
+</div>
+
+
+<!--<div class="joinus-moddule joinus-moddule-back02">
+<img src="{$CssDir/}images/joinus_02.jpg" alt="" />
+<div class="join_cont">
+<div class="container">
+<div class="join_conts">
+{SField sid="文章模型数据源标签" FD="content" page="0"/}
+</div>
+</div>
+</div>
+</div>-->
+
+{ZL.Label id="全站底部"/}
+</body>
+</html>
+
+
+
+<script>
+//检测固顶事件
+var IO=document.getElementById('home_nav'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+    IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+        ".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+    var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+     if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+    if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+    IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+
+//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+var buser = new B_User();
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data)
+		$(".user_login").hide();
+		$(".user_reg").hide();
+		$(".user_cen").html("欢迎您,"+data.UserName+"!");
+		$(".user_cen").show();
+		$(".user_logout").show();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+};
+
+/*显示搜索框*/
+function isSearch(){
+    $(".home_search").show();
+    $(".home_navbar").hide();
+    $(".home_search .form-control").focus();
+}
+/*关闭搜索框*/
+function isClose(){
+    $(".home_search").hide();
+    $(".home_navbar").show();
+}
+
+$(".kefu_qrcode img").attr("src","/Common/common.ashx?url="+encodeURI(window.location.href));
+ 
+//手机下右侧导航菜单效果
+$(function () {
+    $('button.navbar-toggle').click(function () {
+        $('body').toggleClass('out');
+        $('nav.navbar-fixed-top').toggleClass('out');
+        if ($('body').hasClass('out')) {
+            $(this).focus();
+        }
+        else {
+            $(this).blur();
+        }
+    });
+});
+$(document).click(function (e) {
+    if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+        e.preventDefault();
+        $('button.navbar-toggle').trigger('click');
+    }
+}).keyup(function (e) {
+    if (e.keyCode == 27 && $('body').hasClass('out')) {
+        $('button.navbar-toggle').trigger('click');
+    }
+});
+
+
+//微信二维码
+$(".home_weixin img").hide();
+$(".home_weixin a").mouseover(function(){
+    $(".home_weixin img").show();
+}).mouseout(function(){
+    $(".home_weixin img").hide();
+});
+
+$().ready(function(e) {
+    $("#gid{SField sid="文章模型数据源标签" FD="GeneralID" page="0"/}").addClass("active");
+});
+
+</script>

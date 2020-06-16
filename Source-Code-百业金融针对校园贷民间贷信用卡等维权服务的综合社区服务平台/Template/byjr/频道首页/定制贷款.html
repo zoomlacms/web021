@@ -1,0 +1,209 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>定制贷款方案</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<link href="/dist/css/weui.min.css" rel="stylesheet" />
+<script src="/JS/Controls/B_User.js"></script>
+<link href="/Plugins/Third/alert/sweetalert.css" rel="stylesheet" />
+<script src="/Plugins/Third/alert/sweetalert.min.js?v=1"></script>
+<style>
+label { margin-bottom:0; font-weight:500;}
+</style>
+</head>
+<body>
+{ZL.Label id="全站头部"/}
+<div class="container">
+<div class="weui-cells__title">免费定制贷款方案</div>
+<div class="weui-cells weui-cells_form">
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">借款金额</label></div>
+<div class="weui-cell__bd">
+<input class="weui-input" type="text" placeholder="请输入借款金额" id="Jie" />
+</div>
+</div>
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">借款期数</label></div>
+<div class="weui-cell__bd">
+<input class="weui-input" type="text" placeholder="请输入借款期数" id="Time" />
+</div>
+</div>
+<div class="weui-cell weui-cell_select weui-cell_select-after">
+<div class="weui-cell__hd"><label class="weui-label">工作</label></div>
+<div class="weui-cell__bd">
+<select class="weui-select" ID="Job">
+<option value="公职">公职</option>
+<option value="国企">国企</option>
+<option value="私企">私企</option>
+<option value="其它">其它</option>
+</select>
+</div>
+</div>
+<div class="weui-cell weui-cell_select weui-cell_select-after">
+<div class="weui-cell__hd"><label class="weui-label">工资</label></div>
+<div class="weui-cell__bd">
+<select class="weui-select" ID="Money">
+<option value="无">无</option>
+<option value="2400内">2400内</option>
+<option value="2400至4000">2400至4000</option>
+<option value="4000-6000">4000-6000</option>
+<option value="6000-8000">6000-8000</option>
+<option value="8000以上">8000以上</option>
+</select>
+</div>
+</div>
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">办理城市</label></div>
+<div class="weui-cell__bd">
+<input class="weui-input" type="text" placeholder="请输入办理城市" ID="City" />
+</div>
+</div>
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+<div class="weui-cell__bd">
+<input class="weui-input" type="text" placeholder="请输入姓名" id="Name" />
+</div>
+</div>
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">电话</label></div>
+<div class="weui-cell__bd">
+<input class="weui-input" type="text" placeholder="请输入电话" id="Phone" />
+</div>
+</div>
+</div>
+<div class="weui-btn-area">
+<a class="weui-btn weui-btn_primary" href="javascript:" onClick="subButton()">提交获取最优方案</a>
+</div>
+</div>
+{ZL.Label id="全站底部"/}
+</body>
+</html>
+<script src="/JS/DatePicker/WdatePicker.js"></script>
+<script>
+//检测固顶事件
+var IO=document.getElementById('home_nav'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+    IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+        ".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+    var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+     if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+    if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+    IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+
+//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+var buser = new B_User();
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data)
+		$(".user_login").hide();
+		$(".user_reg").hide();
+		$(".user_cen").html("欢迎您,"+data.UserName+"!");
+        $(".home_user_login>a:nth-child(1)").hide();
+        $(".home_user_login p:nth-child(2)").hide();
+        $(".home_user_login p:nth-child(3) a").html("欢迎您,"+data.UserName+"!");
+		$(".user_cen").show();
+		$(".user_logout").show();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+};
+
+/*显示搜索框*/
+function isSearch(){
+    $(".home_search").show();
+    $(".home_navbar").hide();
+    $(".home_search .form-control").focus();
+}
+/*关闭搜索框*/
+function isClose(){
+    $(".home_search").hide();
+    $(".home_navbar").show();
+}
+
+
+ $(".kefu_qrcode img").attr("src","/Common/common.ashx?url="+encodeURI(window.location.href));
+ 
+//手机下右侧导航菜单效果
+$(function () {
+    $('button.navbar-toggle').click(function () {
+        $('body').toggleClass('out');
+        $('nav.navbar-fixed-top').toggleClass('out');
+        if ($('body').hasClass('out')) {
+            $(this).focus();
+        }
+        else {
+            $(this).blur();
+        }
+    });
+});
+$(document).click(function (e) {
+    if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+        e.preventDefault();
+        $('button.navbar-toggle').trigger('click');
+    }
+}).keyup(function (e) {
+    if (e.keyCode == 27 && $('body').hasClass('out')) {
+        $('button.navbar-toggle').trigger('click');
+    }
+});
+
+//微信二维码
+$(".home_weixin img").hide();
+$(".home_weixin a").mouseover(function(){
+    $(".home_weixin img").show();
+}).mouseout(function(){
+    $(".home_weixin img").hide();
+});
+
+function subButton(){
+    if($("#Jie").val()=="" || $("#Jie").val()==null){
+        swal("验证未通过","借款金额未填写，请填写借款金额");
+    }else if($("#Time").val()=="" || $("#Time").val()==null){
+        swal("验证未通过","借款期数未填写，请选择借款期数");
+    }else if($("#City").val()=="" || $("#City").val()==null){
+        swal("验证未通过","办理城市未填写，请填写办理城市");
+    }else if($("#Name").val()=="" || $("#Name").val()==null){
+        swal("验证未通过","姓名为空，请选择联系人姓名");
+    }else if($("#Phone").val()=="" || $("#Phone").val()==null){
+        swal("验证未通过","电话为空，请选择联系人电话");
+    }else{
+        var pubjson = {
+            jkqs:$("#Time").val(),
+            blcs:$("#City").val(),
+            gz:$("#Money").val(),
+            name:$("#Name").val(),
+            phone:$("#Phone").val(),
+            jkje:$("#Jie").val(),
+            job:$("#Job").val()
+        }
+        $.post("/API/Mod/Pub.ashx?action=add&pubid=8&id=51",{data:JSON.stringify(pubjson)},function(data){
+            data = JSON.parse(data);
+            if(data.retcode=="1"){
+                swal({
+                  title: "成功",
+                  text: "提交成功，我们将在最快时间给您答复",
+                  type: "success",
+                  confirmButtonText: "明白",
+                  closeOnConfirm: false
+                },
+                function(){
+                  window.location.href=window.location.href;
+                });
+            }
+        });
+    }
+}
+
+</script>

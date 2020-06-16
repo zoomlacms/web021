@@ -1,0 +1,74 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>316</LabelID>
+    <LabelName>全站底部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div class="home_foot"&gt;
+&lt;div class="container"&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(1)/}"&gt;关于我们&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(2)/}"&gt;联系我们&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(3)/}"&gt;商务合作&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(4)/}"&gt;社区公约&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(5)/}"&gt;人才招聘&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(6)/}"&gt;版权申明&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(10)/}"&gt;友情链接&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;{$Copyright/}&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 foot_qrcode"&gt;
+&lt;img src="{$CssDir/}images/qrcode.jpg" alt="微信公众号"&gt;
+&lt;p&gt;关注微信公众号&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="kefu"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="tel:13133848691"&gt;&lt;span&gt;联系我们&lt;/span&gt;&lt;i class="fa fa-phone"&gt;&lt;/i&gt;&lt;/a&gt;&lt;div class="clearfix"&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3471940849&amp;site=qq&amp;menu=yes" target="_blank"&gt;&lt;span&gt;在线客服&lt;/span&gt;&lt;i class="fa  fa-qq"&gt;&lt;/i&gt;&lt;/a&gt;&lt;div class="clearfix"&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class="kefu_wechat"&gt;&lt;a href="javascript:;"&gt;&lt;span&gt;&lt;img src="{$CssDir/}images/qrcode.jpg" alt="微信二维码" /&gt;&lt;/span&gt;&lt;i class="fa fa-wechat"&gt;&lt;/i&gt;&lt;/a&gt;&lt;div class="clearfix"&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/Guest" target="_blank"&gt;&lt;span&gt;留言咨询&lt;/span&gt;&lt;i class="fa fa-pencil"&gt;&lt;/i&gt;&lt;/a&gt;&lt;div class="clearfix"&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="zixun"&gt;
+&lt;div class="zixun_c"&gt;
+&lt;div class="zixun_ct"&gt;在线QQ客服&lt;/div&gt;
+&lt;div class="zixun_cq"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#"&gt;&lt;i class="fa fa-qq"&gt;&lt;/i&gt; QQ客服&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;&lt;i class="fa fa-qq"&gt;&lt;/i&gt; QQ客服&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;&lt;i class="fa fa-qq"&gt;&lt;/i&gt; QQ客服&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;&lt;i class="fa fa-qq"&gt;&lt;/i&gt; QQ客服&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="zixun_t"&gt;&lt;i class="fa fa fa-commenting"&gt;&lt;/i&gt;在线咨询&lt;/div&gt;
+&lt;/div&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

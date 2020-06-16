@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>344</LabelID>
+    <LabelName>输出论坛滚动图</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>百业金融教学网</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,4,1,显示数|TitNum,50,1,标题长</LabelParam>
+    <LabelTable>ZL_Guest_Bar</LabelTable>
+    <LabelField>Title,CDate,CUName,HitCount,R_CUName,Subtitle,ID</LabelField>
+    <LabelWhere>Status=99 And Pid=0</LabelWhere>
+    <LabelOrder>ID DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;div class="item"&gt;
+&lt;a href="/PItem?id={Field="ID"/}"&gt;&lt;img src="{ZL:GetConPic(ZL_Guest_Bar,{Field="ID"/},SubTitle,1)/}" alt="{Field="Title"/}" onerror="javascript:this.src='/UploadFiles/nopic.gif'" /&gt;&lt;/a&gt;
+&lt;div class="carousel-caption"&gt;{ZL:CutText({Field="Title"/},@TitNum,...)/}&lt;/div&gt;
+&lt;/div&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Guest_Bar","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

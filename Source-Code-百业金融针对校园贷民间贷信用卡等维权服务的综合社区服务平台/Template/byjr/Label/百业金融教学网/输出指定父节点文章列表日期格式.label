@@ -1,0 +1,44 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>337</LabelID>
+    <LabelName>输出指定父节点文章列表日期格式</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>百业金融教学网</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,0,1,节点ID|ShowNum,10,1,显示数|SysNum,200,1,简介数|TitleNum,60,1,标题长</LabelParam>
+    <LabelTable>ZL_CommonModel LEFT JOIN ZL_C_Article ON ZL_CommonModel.ItemID=ZL_C_Article.ID</LabelTable>
+    <LabelField>ZL_CommonModel.CreateTime,ZL_CommonModel.GeneralID,ZL_CommonModel.Hits,ZL_CommonModel.Inputer,ZL_CommonModel.NodeID,ZL_CommonModel.Title,ZL_CommonModel.TopImg,ZL_C_Article.author,ZL_C_Article.source,ZL_C_Article.synopsis</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID) And Status=99</LabelWhere>
+    <LabelOrder>CreateTime DESC</LabelOrder>
+    <LabelContent>&lt;ul class="media-list"&gt;
+{Repeate}
+&lt;li class="media"&gt;
+&lt;div class="media-left"&gt;
+&lt;div class="news_list_day"&gt;{ZL:FormatDate({Field="CreateTime"/},MM-dd)/}&lt;/div&gt;
+&lt;div class="news_list_year"&gt;{ZL:FormatDate({Field="CreateTime"/},yyyy)/}&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="media-body"&gt;
+&lt;h4 class="media-heading"&gt;&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" title="{Field="Title"/}" target="{ZL:GetInfoOpen({Field="NodeID"/})/}"&gt;{ZL:CutText({Field="Title"/},@TitleNum,)/}&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;{ZL:CutText({Field="synopsis"/},@SysNum,...)/}&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;{/Repeate}
+&lt;/ul&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+{ZL.Page id="响应式列表分页v4"/}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_CommonModel","tb_s":"ZL_C_Article"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>
